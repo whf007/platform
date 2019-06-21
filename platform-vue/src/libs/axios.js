@@ -44,7 +44,7 @@ class httpRequest {
         }, 500)
       }
       if (!(data instanceof Blob)) {
-        if (data.code !== 200) {
+        if (data.code !== 200 && data.errno != 0) {
           // 后端服务在个别情况下回报201，待确认
           if (data.code === 401) {
             Cookies.remove(TOKEN_KEY)

@@ -7,10 +7,10 @@
       <h4>{{info.name}}</h4>
     </div>
     <div class="goods-desc">
-      <p>{{info.desc}}</p>
+      <p>{{info.goods_brief}}</p>
     </div>
     <div class="goods-price">
-      <span>￥{{info.price}}</span>
+      <span>￥{{info.retail_price}}</span>
     </div>
   </div>
 </template>

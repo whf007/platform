@@ -5,9 +5,9 @@
         <div class="wrap-item" :key="key" v-for="(item, key) in list">
           <div class="item-desc">
             <h4>{{item.name}}</h4>
-            <span>{{item.price}}元起</span>
+            <span>{{item.floor_price}}元起</span>
           </div>
-          <img class="ignore" :src="item.img" alt="">
+          <img class="ignore" :src="item.app_list_pic_url" alt="">
         </div>
       </div>
     </m-floor>

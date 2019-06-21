@@ -7,12 +7,13 @@ export const getters = {
         name: '推荐'
       }
     ]
-    for (let i = 0; i < state.section.length; i++) {
+    for (let i = 0; i < state.categoryList.length; i++) {
       let item = {
-        id: state.section[i].id,
-        tag: state.section[i].tag,
-        name: state.section[i].title
+        id: state.categoryList[i].id,
+        tag: state.categoryList[i].tag,
+        name: state.categoryList[i].title
       }
+
       arr.push(item)
     }
     return arr

@@ -7,18 +7,18 @@
       :currentNav="0"
       :navList="navList"
       @change-nav="changeNav"></home-header>
-    <home-banner :list="recommend.swipper"></home-banner>
-    <home-direct-supply :list="recommend.directSupply"></home-direct-supply>
-    <home-release :list="recommend.release"></home-release>
-    <home-popular :list="recommend.popular"></home-popular>
+    <home-banner :list="recommend.banner"></home-banner>
+    <home-direct-supply :list="recommend.brandList"></home-direct-supply>
+    <home-release :list="recommend.newGoodsList"></home-release>
+    <home-popular :list="recommend.hotGoodsList"></home-popular>
     <home-flash></home-flash>
     <home-sale></home-sale>
     <home-section
     :key="key"
-    :title="item.title"
-    :tag="item.tag"
-    :list="item.items"
-    v-for="(item, key) in section"></home-section>
+    :title="item.name"
+    :tag="item.id"
+    :list="item.goodsList"
+    v-for="(item, key) in categoryList"></home-section>
     <nav-footer></nav-footer>
   </page>
 </template>
@@ -37,7 +37,7 @@ import navFooter from '../common/nav-footer'
 
 export default {
   computed: {
-    ...mapState('home', ['recommend', 'section']),
+    ...mapState('home', ['recommend', 'categoryList']),
     ...mapGetters('home', ['navList'])
   },
   components: {

@@ -285,6 +285,7 @@ public class ApiIndexController extends ApiBaseAction {
     public Object channel() {
         Map<String, Object> resultObj = new HashMap<String, Object>();
         //
+        resultObj.put("success",true);
         Map<String, Object> param = new HashMap<String, Object>();
         param = new HashMap<String, Object>();
         param.put("sidx", "sort_order ");

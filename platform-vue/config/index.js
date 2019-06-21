@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/platform': {
-        target: 'http://fly2you.cn',
+        target: 'http://localhost',
         changeOrigin: true,
         pathRewrite: {
           '^/platform': '/platform'
