@@ -1,7 +1,7 @@
 <template>
-  <div class="m-goods" @click="$go('/goods/1')">
+  <div class="m-goods" @click="$go('/goods/'+info.id)">
     <div class="goods-pic" data-ratio="1:1">
-      <img :src="info.primary_pic_url" alt="">
+      <img :src="info.list_pic_url" alt="">
     </div>
     <div class="goods-name">
       <h4>{{info.name}}</h4>

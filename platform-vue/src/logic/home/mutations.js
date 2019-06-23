@@ -4,5 +4,6 @@ export const mutations = {
   [types.INIT_HOME] (state, o) {
     state.recommend = o
     state.categoryList = o.categoryList
+    state.channel = o.channel
   }
 }

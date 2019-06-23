@@ -16,7 +16,7 @@
     <home-section
     :key="key"
     :title="item.name"
-    :tag="item.id"
+    :tag="item.name"
     :list="item.goodsList"
     v-for="(item, key) in categoryList"></home-section>
     <nav-footer></nav-footer>
@@ -54,7 +54,8 @@ export default {
   methods: {
     ...mapActions('home', ['getHomeInfo']),
     changeNav (o) {
-      this.$refs.scroll.scrollTo(`[data-tag=${o.tag}]`)
+    console.log(o.name)
+      this.$refs.scroll.scrollTo(`[data-tag=${o.name}]`)
     }
   },
   created () {
