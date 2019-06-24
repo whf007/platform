@@ -30,9 +30,9 @@ import java.util.*;
  * 时间: 2017-08-11 08:32<br>
  * 描述: ApiIndexController <br>
  */
-@Api(tags = "商品管理")
+@Api(tags = "商品管理",produces = "application/x-www-form-urlencoded")
 @RestController
-@RequestMapping("/api/goods")
+@RequestMapping(value = "/api/goods",produces = "application/x-www-form-urlencoded")
 public class ApiGoodsController extends ApiBaseAction {
     @Autowired
     private ApiGoodsService goodsService;

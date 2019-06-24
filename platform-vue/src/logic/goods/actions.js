@@ -30,7 +30,7 @@ export const actions = {
       let res = await api.goods.getGoodsInfo(params)
     console.log(res)
       if (res.errno == 0) {
-        commit(types.INIT_HOME, res.data)
+        commit(types.INIT_GOODS, res.data)
       }
     }
 }

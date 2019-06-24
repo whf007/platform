@@ -50,6 +50,7 @@ export default {
         }
       ],
       detailsSet: {
+
         summary: [
           {
             img: 'https://shop.io.mi-img.com/app/shop/img?id=shop_3020bee0ff8c8d7179187f329e682e74.jpeg&w=1080&h=595&t=webp'

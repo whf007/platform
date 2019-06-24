@@ -24,12 +24,12 @@ import com.platform.validator.Assert;
 import com.qiniu.util.StringUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.apache.commons.collections.MapUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -43,7 +43,7 @@ import java.util.Map;
  * @date 2017-03-23 15:31
  */
 @Api(tags = "API登录授权接口")
-@RestController
+@Controller
 @RequestMapping("/api/auth")
 public class ApiAuthController extends ApiBaseAction {
     private Logger logger = Logger.getLogger(getClass());
@@ -58,6 +58,7 @@ public class ApiAuthController extends ApiBaseAction {
     @IgnoreAuth
     @PostMapping("login")
     @ApiOperation(value = "登录接口")
+    @ResponseBody
     public R login(String mobile, String password) {
         Assert.isBlank(mobile, "手机号不能为空");
         Assert.isBlank(password, "密码不能为空");

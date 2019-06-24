@@ -6,7 +6,7 @@
       </div>
       <div class="goods-info">
         <div class="info-name">
-          <p>路易丝漫男式纯羊毛抗皱三防西装套装</p>
+          <p>路易丝漫男式纯羊毛抗皱三防西装套装1</p>
         </div>
         <div class="info-price">
           <span>￥199.00</span>

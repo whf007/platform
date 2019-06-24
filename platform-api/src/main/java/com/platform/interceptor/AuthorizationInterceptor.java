@@ -4,6 +4,7 @@ import com.platform.annotation.IgnoreAuth;
 import com.platform.entity.TokenEntity;
 import com.platform.service.TokenService;
 import com.platform.utils.ApiRRException;
+import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -42,11 +43,11 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         response.setHeader("Access-Control-Allow-Origin", "*");
         // 浏览器是会先发一次options请求，如果请求通过，则继续发送正式的post请求
         // 配置options的请求返回
-//        if (request.getMethod().equals("OPTIONS")) {
-//            response.setStatus(HttpStatus.SC_OK);
-//            response.getWriter().write("OPTIONS returns OK");
-//            return;
-//        }
+        if (request.getMethod().equals("OPTIONS")) {
+            response.setStatus(HttpStatus.SC_OK);
+            response.getWriter().write("OPTIONS returns OK");
+            return true;
+        }
 
         IgnoreAuth annotation;
         if (handler instanceof HandlerMethod) {
