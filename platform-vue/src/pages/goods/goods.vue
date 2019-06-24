@@ -22,6 +22,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import {mapState, mapGetters, mapActions} from 'vuex'
 import goodsHeader from './goods-header'
 import goodsSwipper from './goods-swipper'
 import goodsInfo from './goods-info'
@@ -34,6 +35,7 @@ import goodsDetails from './goods-details'
 import goodsAction from './goods-action'
 
 export default {
+
   data () {
     return {
       swipperList: [
@@ -160,6 +162,7 @@ export default {
     goodsAction
   },
   methods: {
+    ...mapActions('goods', ['getGoodsInfo']),
     scroll (e) {
       this.scrollY = e.y
     },
@@ -175,8 +178,11 @@ export default {
       }
     },
     goodsNumberChange (o) {
-      // @TODO
+      console.log(o)
     }
-  }
+  },
+  created () {
+       this.getGoodsInfo()
+   }
 }
 </script>

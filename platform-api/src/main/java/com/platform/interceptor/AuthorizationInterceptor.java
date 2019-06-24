@@ -37,7 +37,16 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         response.setHeader("Access-Control-Max-Age", "3600");
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Allow-Headers", "x-requested-with,X-Nideshop-Token,X-URL-PATH");
-        response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
+//        response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
+        //跨域请求，*代表允许全部类型
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        // 浏览器是会先发一次options请求，如果请求通过，则继续发送正式的post请求
+        // 配置options的请求返回
+//        if (request.getMethod().equals("OPTIONS")) {
+//            response.setStatus(HttpStatus.SC_OK);
+//            response.getWriter().write("OPTIONS returns OK");
+//            return;
+//        }
 
         IgnoreAuth annotation;
         if (handler instanceof HandlerMethod) {
