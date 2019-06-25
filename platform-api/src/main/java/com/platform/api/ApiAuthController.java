@@ -43,7 +43,7 @@ import java.util.Map;
  * @date 2017-03-23 15:31
  */
 @Api(tags = "API登录授权接口")
-@Controller
+@RestController
 @RequestMapping("/api/auth")
 public class ApiAuthController extends ApiBaseAction {
     private Logger logger = Logger.getLogger(getClass());
@@ -58,7 +58,6 @@ public class ApiAuthController extends ApiBaseAction {
     @IgnoreAuth
     @PostMapping("login")
     @ApiOperation(value = "登录接口")
-    @ResponseBody
     public R login(String mobile, String password) {
         Assert.isBlank(mobile, "手机号不能为空");
         Assert.isBlank(password, "密码不能为空");
