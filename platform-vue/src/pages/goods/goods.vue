@@ -39,6 +39,7 @@ export default {
   data () {
     return {
       goodNumber:2,
+      id:this.$route.params.id,
       swipperList: [
         {
           image: 'https://shop.io.mi-img.com/app/shop/img?id=shop_bb047e7522a92fb11fd12cd96f8180fb.jpeg&w=1080&h=1270&crop=a_0_95_1080_1080&t=webp'
@@ -187,7 +188,9 @@ export default {
     }
   },
   created () {
-       this.getGoodsInfo()
+    var params = new URLSearchParams();
+    params.append('id', this.id); //你要传给后台的参数值 key/value
+    this.getGoodsInfo(params)
    }
 }
 </script>

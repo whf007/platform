@@ -23,7 +23,7 @@ let mPopup = (options, render) => {
   if (render) {
     instance.expand = render
   }
-  instance.$el.appendChild(instance.mask.$el )
+
   document.body.appendChild(instance.$el)
   console.log(instance)
   Vue.nextTick(function () {
