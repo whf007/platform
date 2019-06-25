@@ -24,7 +24,7 @@ class httpRequest {
     // 添加请求拦截器
     instance.interceptors.request.use(config => {
       if (!config.url.includes('/users')) {
-        config.headers['X-Nideshop-Token'] = Cookies.get(TOKEN_KEY)
+        config.headers['X-Nideshop-Token'] = "n6m3w40nlp2e79ze6ocqn19c17ykkks0"//Cookies.get(TOKEN_KEY)
       }
       // Spin.show()
       // 在发送请求之前做些什么
@@ -70,7 +70,8 @@ class httpRequest {
       baseURL: API_BASE_URL,
       timeout: 2000,
       headers: {
-        'Content-Type': 'application/json; charset=utf-8',
+        // 'Content-Type': 'application/json; charset=utf-8',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
         'X-URL-PATH': location.pathname
       }
     }

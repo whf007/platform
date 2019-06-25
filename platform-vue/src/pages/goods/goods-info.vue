@@ -1,20 +1,24 @@
 <template>
   <div class="goods-info">
     <div class="info-name">
-      <h4>小米8 SE</h4>
+      <h4>{{info.name}}</h4>
     </div>
     <div class="info-desc">
-      <p>骁龙710处理器 / AI 超感光双摄 / 5.88" 全面屏 / 前置2000万柔光自拍 / 三星 AMOLED 屏幕 / 3120mAh 长续航</p>
+      <p>{{info.goods_brief}}</p>
     </div>
     <div class="info-price">
       <div class="price-pay">
         <span>￥</span>
-        <span>1799</span>
+        <span>{{info.market_price}}</span>
       </div>
     </div>
   </div>
 </template>
-
+<script type="text/ecmascript-6">
+  export default {
+    props: ['info']
+  }
+</script>
 <style lang="less" scoped>
   .goods-info{
     padding:28px;

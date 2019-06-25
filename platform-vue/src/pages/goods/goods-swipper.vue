@@ -3,7 +3,7 @@
     <cube-slide :data="swipperList">
       <cube-slide-item v-for="(item, index) in swipperList" :key="index">
         <div class="swipper-image">
-          <img :src="item.image" alt="">
+          <img :src="item.img_url" alt="">
         </div>
       </cube-slide-item>
     </cube-slide>

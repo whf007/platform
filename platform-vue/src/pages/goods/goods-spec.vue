@@ -1,8 +1,10 @@
 <template>
   <div class="goods-spec">
-    <goods-cell title="规格：" @click.native="updateGoodsSpec">
-      <span>4G 米兰白</span>
+    <div v-for="(item,index) in specificationList" v-if="index==0">
+    <goods-cell title="规格：" @click.native="updateGoodsSpec" :infovalue="item">
+      <span>{{item.valueList[0].value}}</span>
     </goods-cell>
+    </div>
   </div>
 </template>
 
@@ -14,10 +16,11 @@ export default {
     goodsCell,
     goodsSpecPanel
   },
+  props: ['specificationList'],
   methods: {
     updateGoodsSpec () {
       this.$mPopup({
-        mask: true
+        mask: false,
       }, (h) => {
         return h(goodsSpecPanel)
       })

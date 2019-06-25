@@ -1,7 +1,7 @@
 <template>
   <div class="goods-number">
-    <goods-cell title="数量：" @click.native="updateGoodsNumber">
-      <span>1</span>
+    <goods-cell title="数量：" @click.native="updateGoodsNumber" :value="goodNumber">
+      <span>{{goodNumber}}</span>
     </goods-cell>
   </div>
 </template>
@@ -15,6 +15,7 @@ export default {
     goodsCell,
     goodsNumberPanel
   },
+  props: ['goodNumber'],
   methods: {
     updateGoodsNumber () {
       this.$mPopup({

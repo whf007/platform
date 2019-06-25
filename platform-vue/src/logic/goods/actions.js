@@ -26,8 +26,7 @@ export const actions = {
   async getGoodsInfo ({commit}) {
     var params = new URLSearchParams();
     params.append('id', 1181000); //你要传给后台的参数值 key/value
-
-      let res = await api.goods.getGoodsInfo(params)
+    let res = await api.goods.getGoodsInfo(params)
     console.log(res)
       if (res.errno == 0) {
         commit(types.INIT_GOODS, res.data)

@@ -11,5 +11,15 @@ export const mutations = {
   },
   [types.UPDATE_IDENTIFY_TIMER] (state, n) {
     state.identifyingCode.time = n
+  },
+  [types.INIT_GOODS] (state, o) {
+    state.gallery = o.gallery
+    state.attribute=o.attribute
+    state.specificationList=o.specificationList
+    state.issue=o.issue
+    state.userHasCollect=o.userHasCollect
+    state.comment=o.comment
+    state.brand=o.brand
+    state.info=o.info
   }
 }

@@ -8,7 +8,7 @@ const getAnInstance = () => {
     el: document.createElement('div')
   })
 }
-
+// https://blog.csdn.net/onlyrose914/article/details/86507742
 const instance = getAnInstance()
 
 instance.close = () => {
@@ -23,7 +23,9 @@ let mPopup = (options, render) => {
   if (render) {
     instance.expand = render
   }
+  instance.$el.appendChild(instance.mask.$el )
   document.body.appendChild(instance.$el)
+  console.log(instance)
   Vue.nextTick(function () {
     logic.commit('common/ADD_POPUP', instance)
     instance.init()
