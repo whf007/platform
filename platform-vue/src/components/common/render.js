@@ -1,7 +1,10 @@
 export default {
   functional: true,
-  props: ['render'],
+  props: ['render','mask'],
   render: (h, ctx) => {
-    return ctx.props.render(h)
+  let s = ctx.props.render(h,ctx.props.mask);
+  console.log(s)
+    return s;
   }
+
 }

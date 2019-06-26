@@ -24,8 +24,8 @@ let mPopup = (options, render) => {
     instance.expand = render
   }
 
+  console.log(render)
   document.body.appendChild(instance.$el)
-  console.log(instance)
   Vue.nextTick(function () {
     logic.commit('common/ADD_POPUP', instance)
     instance.init()

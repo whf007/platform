@@ -6,8 +6,7 @@
       </div>
       <div class="goods-info">
         <div class="info-name">
-
-          <p>路易丝漫男式纯羊毛抗皱三防西装套装{{instance}}</p>
+          <p>路易丝漫男式纯羊毛抗皱三防西装套装{{mask}}</p>
         </div>
         <div class="info-price">
           <span>￥199.00</span>
@@ -35,8 +34,12 @@
   </div>
 </template>
 <script type="text/ecmascript-6">
+  import {mapState, mapGetters, mapActions} from 'vuex'
   export default {
-    props: ['gallery']
+    props: ['render','mask'],
+    computed: {
+      ...mapState('goods', ['gallery','specificationList','comment']),
+    }
   }
 </script>
 <style lang="less" scoped>

@@ -1,7 +1,9 @@
 <template>
+
   <div class="m-popup" :class="{'m-popup-mask': mask}" @click.self="close()">
+    {{mask}}
     <div class="popup-bottom animated fadeInUpBig">
-      <render :render="expand"></render>
+      <render :render="expand" :mask="mask"></render>
     </div>
   </div>
 </template>

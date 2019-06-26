@@ -2,7 +2,7 @@
   <div class="goods-evaluate">
     <div class="evaluate-header">
       <div class="header-left">
-        <span>用户评价（1763）</span>
+        <span>用户评价（{{comment.count}}）</span>
       </div>
       <div class="header-right">
         <span>98%满意</span>
@@ -33,7 +33,8 @@ import evaluateCard from './common/evaluate-card'
 export default {
   components: {
     evaluateCard
-  }
+  },
+  props: ['comment'],
 }
 </script>
 

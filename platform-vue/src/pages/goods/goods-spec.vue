@@ -21,6 +21,7 @@ export default {
     updateGoodsSpec () {
       this.$mPopup({
         mask: false,
+        info:this.specificationList
       }, (h) => {
         return h(goodsSpecPanel)
       })

@@ -14,7 +14,7 @@
       @change="goodsNumberChange"></goods-number>
     <goods-spec  :specificationList="specificationList"></goods-spec>
     <goods-instructions></goods-instructions>
-    <goods-evaluate></goods-evaluate>
+    <goods-evaluate :comment="comment"></goods-evaluate>
     <goods-shop></goods-shop>
     <goods-details :detailsSet="detailsSet"></goods-details>
     <goods-action slot="bottom"></goods-action>
@@ -153,7 +153,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('goods', ['gallery','info','specificationList']),
+    ...mapState('goods', ['gallery','info','specificationList','comment']),
   },
   components: {
     goodsHeader,
