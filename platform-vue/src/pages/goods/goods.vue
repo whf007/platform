@@ -12,7 +12,7 @@
     <goods-info :info="info"></goods-info>
     <goods-number :goodNumber="goodNumber"
       @change="goodsNumberChange"></goods-number>
-    <goods-spec  :specificationList="specificationList"></goods-spec>
+    <goods-spec  :specificationList="specificationList" :datainfo="datainfo"  @click="goodsProductChange"></goods-spec>
     <goods-instructions></goods-instructions>
     <goods-evaluate :comment="comment"></goods-evaluate>
     <goods-shop></goods-shop>
@@ -153,7 +153,7 @@ export default {
     }
   },
   computed: {
-    ...mapState('goods', ['gallery','info','specificationList','comment']),
+    ...mapState('goods', ['gallery','info','specificationList','comment','productList','datainfo']),
   },
   components: {
     goodsHeader,
@@ -184,7 +184,19 @@ export default {
       }
     },
     goodsNumberChange (o) {
-      console.log(o)
+        if(o.type == 'sub') {
+            if(this.goodNumber <=0) {
+                return 0
+            }
+          this.goodNumber--;
+        } else {
+          this.goodNumber++;
+        }
+
+      console.log(this.goodNumber)
+    },
+    goodsProductChange (o) {
+      console.log(this.goodNumber)
     }
   },
   created () {

@@ -1,9 +1,8 @@
 <template>
 
   <div class="m-popup" :class="{'m-popup-mask': mask}" @click.self="close()">
-    {{mask}}
     <div class="popup-bottom animated fadeInUpBig">
-      <render :render="expand" :mask="mask"></render>
+      <render :render="expand" ></render>
     </div>
   </div>
 </template>
@@ -32,7 +31,14 @@ export default{
   methods: {
     init () {
       // @TODO
+    },
+    sub () {
+      this.$emit('change', {type: 'sub', number: this.value, goods: this.params})
+    },
+    add () {
+      this.$emit('change', {type: 'add', number: this.value, goods: this.params})
     }
+
   }
 }
 </script>

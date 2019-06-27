@@ -21,5 +21,7 @@ export const mutations = {
     state.comment=o.comment
     state.brand=o.brand
     state.info=o.info
+    state.productList=o.productList
+    state.datainfo = o
   }
 }

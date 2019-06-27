@@ -1,10 +1,12 @@
 export default {
   functional: true,
-  props: ['render','mask'],
+  props: ['render'],
+  datainfo:{},
+  click:function(){
+
+  },
   render: (h, ctx) => {
-  let s = ctx.props.render(h,ctx.props.mask);
-  console.log(s)
-    return s;
+    return ctx.props.render(h);
   }
 
 }

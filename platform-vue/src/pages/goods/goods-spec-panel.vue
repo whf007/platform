@@ -5,40 +5,32 @@
         <img src="https://shop.io.mi-img.com/app/shop/img?id=shop_5f926ad08c9604219568908eafc90a8e.jpeg" alt="">
       </div>
       <div class="goods-info">
-        <div class="info-name">
-          <p>路易丝漫男式纯羊毛抗皱三防西装套装{{mask}}</p>
+        <div class="info-name" >
+          <p>{{datainfo.info.name}}</p>
         </div>
         <div class="info-price">
-          <span>￥199.00</span>
+          <span>￥{{datainfo.productList[0].market_price}} <br>￥{{datainfo.productList[1].retail_price}} </span>
         </div>
       </div>
     </div>
-    <div class="panel-section">
-      <div class="section-title">
-        <span>容量</span>
+    <div class="panel-section" v-for="item in datainfo.specificationList">
+      <div class="section-title" >
+        <span>{{item.name}}</span>
       </div>
       <div class="section-content">
-        <span>16G</span>
-        <span>32G</span>
+        <span  v-for="inItem in item.valueList" @click="selectProduct">{{inItem.value}}</span>
       </div>
     </div>
-    <div class="panel-section">
-      <div class="section-title">
-        <span>颜色</span>
-      </div>
-      <div class="section-content">
-        <span>米兰白</span>
-        <span>太空灰</span>
-      </div>
-    </div>
+
   </div>
 </template>
 <script type="text/ecmascript-6">
-  import {mapState, mapGetters, mapActions} from 'vuex'
   export default {
-    props: ['render','mask'],
-    computed: {
-      ...mapState('goods', ['gallery','specificationList','comment']),
+    props: ['click','datainfo'],
+    methods: {
+      selectProduct () {
+        this.$emit('click', {type: 'sub', number: this.value, goods: this.params})
+      }
     }
   }
 </script>

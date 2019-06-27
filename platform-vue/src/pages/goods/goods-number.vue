@@ -24,6 +24,10 @@ export default {
         return h(goodsNumberPanel, {
           on: {
             change: this.changeHandler
+          },
+          props:{
+            value:this.goodNumber,
+            data:this.data
           }
         })
       })

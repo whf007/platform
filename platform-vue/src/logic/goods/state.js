@@ -10,5 +10,7 @@ export default {
   userHasCollect:"",
   comment:[],
   brand:[],
-  info:[]
+  info:[],
+  productList:[],
+  datainfo:{}
 }

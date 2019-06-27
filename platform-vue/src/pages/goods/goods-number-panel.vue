@@ -18,7 +18,7 @@
         <span>数量</span>
       </div>
       <div class="section-content">
-        <m-number :value="1" @change="change"></m-number>
+        <m-number :value="value" @change="change"></m-number>
       </div>
     </div>
   </div>
@@ -30,7 +30,8 @@ export default {
     change (o) {
       this.$emit('change', o)
     }
-  }
+  },
+  props: ['value','datainfo']
 }
 </script>
 
