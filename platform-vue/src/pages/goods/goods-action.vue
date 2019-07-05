@@ -9,7 +9,7 @@
         <i class="iconfont">&#xe611;</i>
         <span>收藏</span>
       </div>
-      <div class="left-item">
+      <div class="left-item" @click="$go('/cart')">
         <i class="iconfont">&#xe602;</i>
         <span>购物车</span>
       </div>
@@ -24,7 +24,11 @@
     </div>
   </div>
 </template>
-
+<script type="text/ecmascript-6">
+  export default {
+    props: ['items']
+  }
+</script>
 <style lang="less" scoped>
   .goods-action{
     display: flex;

@@ -196,7 +196,7 @@ export default {
       console.log(this.goodNumber)
     },
     goodsProductChange (o) {
-      console.log(this.goodNumber)
+      console.log(o)
     }
   },
   created () {
