@@ -18,7 +18,7 @@
         <span>{{item.name}}</span>
       </div>
       <div class="section-content">
-        <span v-for="inItem in item.valueList" @click="selectProduct(datainfo,index,inItem.id,$event)"
+        <span v-for="inItem in item.valueList" :class="classA" @click="selectProduct(datainfo,index,inItem.id,$event)"
               :partner-id="item.id" :data-id="inItem.id">{{inItem.value}}</span>
       </div>
     </div>
@@ -31,25 +31,33 @@
       return {
         products: [],
         info: [],
-        datamessage:['','','','','']
+        datamessage: ['', '', '', '', ''],
+        classA: ""
       }
     },
     props: ['click', 'datainfo'],
     methods: {
       selectProduct (datainfo, index, id, event) {
         // 灰色不能点击
-        if (event.originalTarget.className.indexOf("selectType") == -1) {
-          var sil = event.originalTarget.parentNode.children;
+
+        if (event.target.className.indexOf("selectType") == -1) {
+          var sil = event.target.parentNode.children;
 
           for (var i = 0; i < sil.length; i++) {
             if (sil[i].className.indexOf("selectType") == -1)
-              sil[i].className = "";
+              if (sil[i].className.indexOf("selectOne") != -1) {
+                sil[i].className = "selectOne"
+              } else {
+                sil[i].className = "";
+              }
+
           }
-          if (event.originalTarget.className.indexOf("selectOne") != -1) {
-            event.originalTarget.className = "";
+
+          if (event.target.className.indexOf("selectOne") != -1) {
+            event.target.className = "";
           } else {
-            event.originalTarget.className = "selectOne"
-            this.datamessage[index]=id;
+            event.target.className = "selectOne"
+            this.datamessage[index] = id;
           }
         } else {
           return;
@@ -90,7 +98,6 @@
             }
           }
         }
-        console.log(this.datamessage)
         this.$emit('click', {id: this.datamessage})
       },
       selectStyle(value){
