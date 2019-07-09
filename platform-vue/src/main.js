@@ -56,7 +56,7 @@ Vue.mixin({
         params: data,
         headers: {
           'Content-Type': header,
-          'X-Nideshop-Token': store.getters.token
+          'X-Nideshop-Token':  "n6m3w40nlp2e79ze6ocqn19c17ykkks0"//store.getters.token
         }
       }
       if (method == 'post') {
@@ -67,9 +67,13 @@ Vue.mixin({
       return new Promise(function (resolve, reject) {
         vux.$http(config)
           .then(res => {
+          console.log(200)
             if (res.status == 200) {
 
+          console.log(200)
               if (res.data.errno == 401) {
+                console.log(401)
+
                 //需要登录后才可以操作
                 vux.$vux.toast.text('请登录后继续')
                 // vux.$vux.alert.show({
@@ -80,13 +84,16 @@ Vue.mixin({
                 //   }
                 // })
               } else {
+                console.log(200)
                 resolve(res.data);
               }
             } else {
+              console.log(200)
               reject(res.errMsg);
             }
           })
           .catch(e => {
+          console.log(200)
             console.log(e)
           })
       })
