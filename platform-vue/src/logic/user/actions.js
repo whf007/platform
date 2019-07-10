@@ -7,7 +7,7 @@ import session from '@/libs/session'
 export const actions = {
   async login ({dispatch}, o) {
     const form = {
-      account: o.mobile,
+      mobile: o.mobile,
       password: o.password
     }
     let validate = new UserValidate('login').check(form)

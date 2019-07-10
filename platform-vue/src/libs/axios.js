@@ -44,7 +44,8 @@ class httpRequest {
         }, 500)
       }
       if (!(data instanceof Blob)) {
-        if (data.code !== 200 && data.errno != 0) {
+        console.log(data)
+        if (data.code !== 0 && data.errno != 0) {
           // 后端服务在个别情况下回报201，待确认
           if (data.code === 401) {
             Cookies.remove(TOKEN_KEY)
@@ -55,7 +56,10 @@ class httpRequest {
             }
           }
           return false
+        } else {
+          Cookies.set(TOKEN_KEY,data.token,data.expire);
         }
+        console.log(Cookies.get(TOKEN_KEY));
       }
       return data
     }, (error) => {
