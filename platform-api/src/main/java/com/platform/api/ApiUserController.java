@@ -19,6 +19,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 作者: @author Harmon <br>
  * 时间: 2017-08-11 08:32<br>
@@ -102,24 +105,17 @@ public class ApiUserController extends ApiBaseAction {
         return toResponsSuccess(userLevel);
     }
 
+
     /**
      * 绑定手机
      */
     @ApiOperation(value = "绑定手机")
-    @PostMapping("bindMobile")
-    public Object bindMobile(@LoginUser UserVo loginUser) {
-        JSONObject jsonParams = getJsonRequest();
-        SmsLogVo smsLogVo = userService.querySmsCodeByUserId(loginUser.getUserId());
+    @PostMapping("getUserInfo")
+    public Object getUserInfo(@LoginUser UserVo loginUser) {
+        Map<String,Object> map = new HashMap<>();
 
-        String mobile_code = jsonParams.getString("mobile_code");
-        String mobile = jsonParams.getString("mobile");
-
-        if (!mobile_code.equals(smsLogVo.getSms_code())) {
-            return toResponsFail("验证码错误");
-        }
-        UserVo userVo = userService.queryObject(loginUser.getUserId());
-        userVo.setMobile(mobile);
-        userService.update(userVo);
-        return toResponsSuccess("手机绑定成功");
+        map.put("isLogin","true");
+        map.put("profile",loginUser);
+        return toResponsSuccess(map);
     }
 }

@@ -6,7 +6,7 @@
       </div>
       <div class="left-name">
         <span v-if="isLogin">{{profile.nickName}}</span>
-        <span v-if="!isLogin">请登录</span>
+        <span v-if="!isLogin">请登录{{profile}}</span>
       </div>
     </div>
     <div class="account-right">
