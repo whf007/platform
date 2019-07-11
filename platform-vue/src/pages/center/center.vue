@@ -27,6 +27,10 @@ export default {
     centerOrder,
     centerNewUser,
     centerService
+  },
+  created () {
+    this.getUserInfo()
   }
 }
 </script>
+

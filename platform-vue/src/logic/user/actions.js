@@ -14,6 +14,7 @@ export const actions = {
     if (validate.success) {
       let res = await api.user.login(form)
       if (res.success) {
+
         session.setToken(res.data.token)
         let res1 = await dispatch('getUserInfo')
         toast('登录成功', 'correct')
