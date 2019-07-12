@@ -42,7 +42,8 @@ export const actions = {
   async getUserInfo ({commit}) {
     if (session.isLogin()) {
       let res = await api.user.getUserInfo()
-      if (res.success) {
+      console.log(res.errno == "0")
+      if (res.errno == 0) {
         commit(types.INIT_USER_INFO, res.data)
         commit(types.SET_LOGIN_STATE, true)
         return res.data

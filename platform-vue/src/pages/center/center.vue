@@ -28,9 +28,7 @@ export default {
     centerNewUser,
     centerService
   },
-  created () {
-    this.getUserInfo()
-  }
+
 }
 </script>
 
