@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="action-right">
-      <div class="right-item right-item-buy">
+      <div class="right-item right-item-buy" @click="checkout">
         <span>立即购买</span>
       </div>
       <div class="right-item right-item-cart">
@@ -26,7 +26,12 @@
 </template>
 <script type="text/ecmascript-6">
   export default {
-    props: ['items']
+    props: ['items'],
+    methods: {
+        checkout() {
+            this.$emit('click')
+        }
+    }
   }
 </script>
 <style lang="less" scoped>

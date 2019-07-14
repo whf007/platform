@@ -6,5 +6,15 @@ export const goods = {
       data: params,
       method: 'post'
     })
+  },
+  addGoods: (params) => {
+    return axios.request({
+      url: 'buy/add',
+      data: params,
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+      }
+    })
   }
 }

@@ -17,7 +17,7 @@
     <goods-evaluate :comment="comment"></goods-evaluate>
     <goods-shop></goods-shop>
     <goods-details :detailsSet="detailsSet"></goods-details>
-    <goods-action slot="bottom"></goods-action>
+    <goods-action slot="bottom" @click="buy"></goods-action>
   </page>
 </template>
 
@@ -38,8 +38,9 @@ export default {
 
   data () {
     return {
-      goodNumber:2,
+      goodNumber:1,
       id:this.$route.params.id,
+      product_id:"",
       swipperList: [
         {
           image: 'https://shop.io.mi-img.com/app/shop/img?id=shop_bb047e7522a92fb11fd12cd96f8180fb.jpeg&w=1080&h=1270&crop=a_0_95_1080_1080&t=webp'
@@ -168,7 +169,7 @@ export default {
     goodsAction
   },
   methods: {
-    ...mapActions('goods', ['getGoodsInfo']),
+    ...mapActions('goods', ['getGoodsInfo','addGoods']),
     scroll (e) {
       this.scrollY = e.y
     },
@@ -193,10 +194,24 @@ export default {
           this.goodNumber++;
         }
 
-      console.log(this.goodNumber)
     },
     goodsProductChange (o) {
-      console.log(o)
+      this.product_id ="";
+       var product_ids =  o.id
+
+      for(var i =0 ; i < product_ids.length;i++){
+          if(product_ids[i] != "") {
+              this.product_id += product_ids[i]+"_"
+          }
+      }
+    },
+    buy(){
+      var params = new URLSearchParams();
+      params.append('id', "1181000");
+      this.addGoods(params)
+      console.log(this.$store.state.goods)
+      this.$go('/checkout/'+this.$store.state.goods.info.id);
+
     }
   },
   created () {

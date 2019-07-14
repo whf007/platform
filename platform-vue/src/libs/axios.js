@@ -44,7 +44,6 @@ class httpRequest {
         }, 500)
       }
       if (!(data instanceof Blob)) {
-        console.log(data)
         if (data.code !== 0 && data.errno != 0) {
           // 后端服务在个别情况下回报201，待确认
           if (data.code === 401) {
@@ -93,7 +92,8 @@ class httpRequest {
     this.interceptors(instance, options.url)
     options = Object.assign({}, options)
     this.queue[options.url] = instance
-    return instance(options)
+    var data = instance(options);
+    return data;
   }
 }
 

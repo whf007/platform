@@ -28,5 +28,11 @@ export const actions = {
       if (res.errno == 0) {
         commit(types.INIT_GOODS, res.data)
       }
-    }
+    },
+  async addGoods ({commit, state},params) {
+  let res = await api.goods.addGoods(params)
+  if (res.errno == 0) {
+    commit(types.ADD_GOODS, res.data)
+  }
+}
 }

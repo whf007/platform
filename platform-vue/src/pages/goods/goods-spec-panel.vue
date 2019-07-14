@@ -38,18 +38,22 @@
     props: ['click', 'datainfo'],
     methods: {
       selectProduct (datainfo, index, id, event) {
+        this.products = [];
         // 灰色不能点击
 
         if (event.target.className.indexOf("selectType") == -1) {
           var sil = event.target.parentNode.children;
 
           for (var i = 0; i < sil.length; i++) {
-            if (sil[i].className.indexOf("selectType") == -1)
-              if (sil[i].className.indexOf("selectOne") != -1) {
+            if (sil[i].className.indexOf("selectType") == -1) {
+
+              if (sil[i].className.indexOf("selectOne") != -1 &&  event.target == sil[i]) {
                 sil[i].className = "selectOne"
               } else {
                 sil[i].className = "";
               }
+
+            }
 
           }
 

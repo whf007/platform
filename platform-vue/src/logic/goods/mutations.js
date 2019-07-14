@@ -23,5 +23,11 @@ export const mutations = {
     state.info=o.info
     state.productList=o.productList
     state.datainfo = o
+  },
+  [types.ADD_GOODS] (state, o) {
+    state.goodsId = o.goodsId
+    state.number=o.number
+    state.productId=o.productId
+
   }
 }

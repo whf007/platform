@@ -12,5 +12,10 @@ export default {
   brand:[],
   info:[],
   productList:[],
-  datainfo:{}
+  datainfo:{},
+  goodsId:"",
+  number:0,
+  productId:0
+
+
 }
