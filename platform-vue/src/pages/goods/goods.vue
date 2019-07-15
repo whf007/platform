@@ -233,7 +233,7 @@ export default {
     buy(){
       var params = {goodsId:this.$store.state.goods.info.id,number:this.goodNumber,productId:this.productId}
       this.addGoods(params)
-      this.$go('/checkout');
+      this.$go('/checkout?type=buy');
 
     }
   },

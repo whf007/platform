@@ -29,6 +29,7 @@ export const cart = {
     })
   },
   getCheckoutInfo: (params) => {
+    console.log(params)
     return axios.request({
       url: 'cart/checkout',
       data: params,

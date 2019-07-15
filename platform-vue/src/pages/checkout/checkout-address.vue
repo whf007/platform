@@ -2,12 +2,14 @@
   <div class="checkout-address">
     <div class="address-left">
       <div class="left-top">
-        <h4>{{address.name}}</h4>
-        <span>136******30</span>
+
+        <h4>{{address.userName}}</h4>
+        <span>{{address.telNumber}}</span>
       </div>
       <div class="left-bottom">
-        <p>中国 广东 佛山 顺德 北滘镇莘村中学（528300）</p>
+        <p>中国 {{address.provinceName}} {{address.cityName}} {{address.countyName}} {{address.detailInfo}}（528300）</p>
       </div>
+
     </div>
     <div class="address-right">
       <i class="iconfont">&#xe632;</i>

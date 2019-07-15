@@ -395,8 +395,7 @@ public class ApiCartController extends ApiBaseAction {
      */
     @ApiOperation(value = "订单提交前的检验和填写相关订单信息")
     @PostMapping("checkout")
-    public Object checkout(@LoginUser UserVo loginUser, Integer couponId, @RequestParam(defaultValue = "cart") String type) {
-        Map<String, Object> resultObj = new HashMap();
+    public Object checkout(@LoginUser UserVo loginUser, Integer couponId, @RequestParam(defaultValue = "cart") String type) {Map<String, Object> resultObj = new HashMap();
         //根据收货地址计算运费
 
         BigDecimal freightPrice = new BigDecimal(0.00);
@@ -434,6 +433,7 @@ public class ApiCartController extends ApiBaseAction {
             cartVo.setNumber(goodsVO.getNumber());
             cartVo.setRetail_price(productInfo.getRetail_price());
             cartVo.setList_pic_url(productInfo.getList_pic_url());
+            cartVo.setGoods_id(goodsVO.getGoodsId());
             checkedGoodsList.add(cartVo);
         }
 

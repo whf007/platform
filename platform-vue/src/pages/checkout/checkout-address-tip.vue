@@ -1,6 +1,6 @@
 <template>
   <div class="checkout-address-top">
-    <p>配送至：广东 佛山市 顺德区 北滘镇</p>
+    <p>配送至：{{address.provinceName}} {{address.cityName}} {{address.countyName}} {{address.detailInfo}}</p>
   </div>
 </template>
 

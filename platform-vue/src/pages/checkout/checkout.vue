@@ -6,7 +6,7 @@
       <checkout-pay @pay="payHandler"></checkout-pay>
     </template>
     <checkout-address
-        :address="checkoutInfo.address"
+        :address="checkoutInfo.checkedAddres"
         @click.native="$go('/checkout/address')"></checkout-address>
     <checkout-pay-way></checkout-pay-way>
     <checkout-goods-details></checkout-goods-details>
@@ -14,7 +14,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import {mapActions} from 'vuex'
+import {mapState,mapActions} from 'vuex'
 import accountWarm from '../common/account-warm'
 import checkoutPay from './checkout-pay'
 import checkoutAddressTip from './checkout-address-tip'
@@ -25,10 +25,11 @@ export default{
   data () {
     return {
       checkoutId: this.$route.params.id,
-      checkoutInfo: {
-        address: {}
-      }
+      type: this.$route.query.type
     }
+  },
+  computed: {
+    ...mapState('cart', ['checkoutInfo']),
   },
   components: {
     accountWarm,
@@ -71,8 +72,17 @@ export default{
     }
   },
   created () {
-    this.getCheckoutInfo(this.checkoutId).then(res => {
-      this.checkoutInfo.address = res.address
+    var params = new URLSearchParams();
+    if(this.type == undefined ) {
+        this.type = "cart";
+    }
+    params.append('type', this.type); //你要传给后台的参数值 key/value
+    params.append('checkoutId', this.checkoutId);
+    this.getCheckoutInfo(params)
+  },
+  beforeRouteEnter(to, from, next){
+    next(vm =>{
+      console.log(from) // 上一页面的路由信息
     })
   },
   beforeRouteLeave (to, from, next) {
@@ -81,8 +91,9 @@ export default{
         next()
       })
     } else {
+
       next()
     }
-  }
+  },
 }
 </script>

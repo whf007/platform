@@ -4,6 +4,18 @@ export const mutations = {
   [types.INIT_CART_INFO] (state, a) {
     // @TODO
   },
+  [types.BUY_INFO] (state, a) {
+    state.checkoutInfo.checkedAddres.id=a.data.checkedAddress.id,
+    state.checkoutInfo.checkedAddres.userId=a.data.checkedAddress.userId,
+    state.checkoutInfo.checkedAddres.userName=a.data.checkedAddress.userName,
+    state.checkoutInfo.checkedAddres.telNumber=a.data.checkedAddress.telNumber,
+    state.checkoutInfo.checkedAddres.provinceName=a.data.checkedAddress.provinceName,
+    state.checkoutInfo.checkedAddres.cityName=a.data.checkedAddress.cityName,
+    state.checkoutInfo.checkedAddres.countyName=a.data.checkedAddress.countyName,
+    state.checkoutInfo.checkedAddres.detailInfo=a.data.checkedAddress.detailInfo,
+    state.checkoutInfo.checkedAddres.is_default=a.data.checkedAddress.is_default,
+    state.checkoutInfo.checkedAddres.full_region=a.data.checkedAddress.full_region
+  },
   [types.TOGGLE_MODEL] (state) {
     state.cart.model = !state.cart.model
   },

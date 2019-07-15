@@ -33,9 +33,10 @@ export const actions = {
       return res.data.checkoutId
     }
   },
-  async getCheckoutInfo ({commit}, n) {
-    let res = await api.cart.getCheckoutInfo()
-    if (res.success) {
+  async getCheckoutInfo ({commit}, param) {
+    let res = await api.cart.getCheckoutInfo(param)
+  if (res.errno == 0) {
+      commit(types.BUY_INFO, res)
       return res.data
     }
   },

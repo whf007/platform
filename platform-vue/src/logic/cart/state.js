@@ -31,5 +31,38 @@ export default {
       }
     ],
     select: []
+  },
+  checkoutInfo:{
+    checkedAddres:{
+      id:0,
+      userId:0,
+      userName:"",
+      telNumber:"",
+      provinceName:"",
+      cityName:"",
+      countyName:"",
+      detailInfo:"",
+      is_default:0,
+      full_region:""
+    },
+    checkedGoodsList:[{
+      id: null,
+      user_id: null,
+      session_id: null,
+      goods_id: 0,
+      goods_sn: null,
+      product_id: null,
+      goods_name:0,
+      market_price: null,
+      retail_price: 0,
+      retail_product_price: null,
+      number: 1,
+      goods_specifition_name_value: null,
+      goods_specifition_ids: null,
+      checked: null,
+      crash_save_price: null,
+      list_pic_url: ""
+    }],
+    goodsTotalPrice: 0
   }
 }
