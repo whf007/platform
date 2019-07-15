@@ -103,7 +103,7 @@ export default [
     component: () => import('@/pages/order/order')
   },
   {
-    path: '/checkout/:id',
+    path: '/checkout',
     name: 'checkout',
     meta: {
       title: '确认信息',

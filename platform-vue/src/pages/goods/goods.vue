@@ -41,6 +41,7 @@ export default {
       goodNumber:1,
       id:this.$route.params.id,
       product_id:"",
+      productId:"",
       swipperList: [
         {
           image: 'https://shop.io.mi-img.com/app/shop/img?id=shop_bb047e7522a92fb11fd12cd96f8180fb.jpeg&w=1080&h=1270&crop=a_0_95_1080_1080&t=webp'
@@ -197,6 +198,7 @@ export default {
     },
     goodsProductChange (o) {
       this.product_id ="";
+      this.productId = "";
        var product_ids =  o.id
 
       for(var i =0 ; i < product_ids.length;i++){
@@ -204,13 +206,34 @@ export default {
               this.product_id += product_ids[i]+"_"
           }
       }
+      var productList = this.$store.state.goods.productList;
+      if(this.product_id != "") {
+        for(var i = 0 ; i < productList.length;i++) {
+          var ids = productList[i].goods_specification_ids;
+          var flag = true;
+          for(var j =0 ; j < product_ids.length;j++){
+            flag = true
+            if(product_ids[j] != "") {
+              if(!(ids.indexOf(product_ids[j]) != -1&&flag)) {
+                flag = false;
+                break;
+              }
+            }
+
+          }
+          if(flag){
+            this.productId = productList[i].id
+
+            break;
+          }
+        }
+      }
+
     },
     buy(){
-      var params = new URLSearchParams();
-      params.append('id', "1181000");
+      var params = {goodsId:this.$store.state.goods.info.id,number:this.goodNumber,productId:this.productId}
       this.addGoods(params)
-      console.log(this.$store.state.goods)
-      this.$go('/checkout/'+this.$store.state.goods.info.id);
+      this.$go('/checkout');
 
     }
   },

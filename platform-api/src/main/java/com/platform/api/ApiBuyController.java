@@ -24,6 +24,7 @@ public class ApiBuyController extends ApiBaseAction {
         Integer goodsId = jsonParam.getInteger("goodsId");
         Integer productId = jsonParam.getInteger("productId");
         Integer number = jsonParam.getInteger("number");
+
         BuyGoodsVo goodsVo = new BuyGoodsVo();
         goodsVo.setGoodsId(goodsId);
         goodsVo.setProductId(productId);
