@@ -3,7 +3,11 @@
     <p>配送至：{{address.provinceName}} {{address.cityName}} {{address.countyName}} {{address.detailInfo}}</p>
   </div>
 </template>
-
+<script type="text/ecmascript-6">
+  export default {
+    props: ['address']
+  }
+</script>
 <style lang="less" scoped>
   .checkout-address-top{
     display: flex;

@@ -2,14 +2,14 @@
   <page :better-scroll="true">
     <account-warm slot="extra-top"></account-warm>
     <template slot="bottom">
-      <checkout-address-tip></checkout-address-tip>
-      <checkout-pay @pay="payHandler"></checkout-pay>
+      <checkout-address-tip  :address="checkoutInfo.checkedAddres"></checkout-address-tip>
+      <checkout-pay @pay="payHandler" :orderTotalPrice="orderTotalPrice"></checkout-pay>
     </template>
     <checkout-address
         :address="checkoutInfo.checkedAddres"
         @click.native="$go('/checkout/address')"></checkout-address>
     <checkout-pay-way></checkout-pay-way>
-    <checkout-goods-details></checkout-goods-details>
+    <checkout-goods-details :checkedGoodsList="checkoutInfo.checkedGoodsList"></checkout-goods-details>
   </page>
 </template>
 
@@ -29,7 +29,7 @@ export default{
     }
   },
   computed: {
-    ...mapState('cart', ['checkoutInfo']),
+    ...mapState('cart', ['checkoutInfo','orderTotalPrice']),
   },
   components: {
     accountWarm,

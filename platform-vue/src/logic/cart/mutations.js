@@ -14,7 +14,13 @@ export const mutations = {
     state.checkoutInfo.checkedAddres.countyName=a.data.checkedAddress.countyName,
     state.checkoutInfo.checkedAddres.detailInfo=a.data.checkedAddress.detailInfo,
     state.checkoutInfo.checkedAddres.is_default=a.data.checkedAddress.is_default,
-    state.checkoutInfo.checkedAddres.full_region=a.data.checkedAddress.full_region
+    state.checkoutInfo.checkedAddres.full_region=a.data.checkedAddress.full_region,
+    state.orderTotalPrice = a.data.orderTotalPrice
+    // 商品信息
+    var checkedGoodsList = a.data.checkedGoodsList;
+    state.checkoutInfo.checkedGoodsList = checkedGoodsList;
+
+
   },
   [types.TOGGLE_MODEL] (state) {
     state.cart.model = !state.cart.model

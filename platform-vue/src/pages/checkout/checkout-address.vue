@@ -7,7 +7,7 @@
         <span>{{address.telNumber}}</span>
       </div>
       <div class="left-bottom">
-        <p>中国 {{address.provinceName}} {{address.cityName}} {{address.countyName}} {{address.detailInfo}}（528300）</p>
+        <p>中国 {{address.provinceName}} {{address.cityName}} {{address.countyName}} {{address.detailInfo}}</p>
       </div>
 
     </div>

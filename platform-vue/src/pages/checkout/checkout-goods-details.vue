@@ -4,8 +4,8 @@
       <h4>商品详情</h4>
     </div>
     <div class="details-content">
-      <div class="content-goods border-1px-top border-1px-bottom">
-        <checkout-goods></checkout-goods>
+      <div class="content-goods border-1px-top border-1px-bottom" v-for="item in checkedGoodsList">
+        <checkout-goods :item="item"></checkout-goods>
       </div>
       <div class="content-cells">
         <checkout-cell title="优惠券/优惠码" :is-link="true"></checkout-cell>
@@ -21,6 +21,7 @@
 import checkoutGoods from './common/checkout-goods'
 import checkoutCell from './common/checkout-cell'
 export default {
+  props: ['checkedGoodsList'],
   components: {
     checkoutGoods,
     checkoutCell

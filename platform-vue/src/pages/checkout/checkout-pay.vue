@@ -2,7 +2,7 @@
   <div class="checkout-pay">
     <div class="pay-info">
       <span class="info-text">合计</span>
-      <span class="info-price">￥1236.00</span>
+      <span class="info-price">￥{{orderTotalPrice}}</span>
     </div>
     <div class="pay-action" @click="pay">
       <span>去支付</span>
@@ -12,6 +12,7 @@
 
 <script type="text/ecmascript-6">
 export default {
+  props: ['orderTotalPrice'],
   methods: {
     pay () {
       this.$emit('pay')
