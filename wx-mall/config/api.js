@@ -1,4 +1,5 @@
-const API_BASE_URL = 'https://wyynf.51vip.biz/platform/api/';
+// const API_BASE_URL = 'https://wyynf.51vip.biz/platform/api/';
+const API_BASE_URL = 'https://www.whfrecord.com/platform/api/';
 module.exports = {
     IndexUrlNewGoods: API_BASE_URL + 'index/newGoods', //新品首发
     IndexUrlHotGoods: API_BASE_URL + 'index/hotGoods', //热卖商品

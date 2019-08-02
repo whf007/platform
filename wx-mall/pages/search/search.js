@@ -4,23 +4,23 @@ var api = require('../../config/api.js');
 var app = getApp()
 Page({
   data: {
-    keywrod: '',
-    searchStatus: false,
-    goodsList: [],
-    helpKeyword: [],
-    historyKeyword: [],
-    categoryFilter: false,
-    currentSortType: 'default',
-    currentSortOrder: '',
-    filterCategory: [],
-    defaultKeyword: {},
-    hotKeyword: [],
-    page: 1,
-    size: 20,
-    currentSortType: 'id',
-    currentSortOrder: 'desc',
-    categoryId: 0
-  },
+        keywrod: '',
+        searchStatus: false,
+        goodsList: [],
+        helpKeyword: [],
+        historyKeyword: [],
+        categoryFilter: false,
+        currentSortType: 'default',
+        currentSortOrder: '',
+        filterCategory: [],
+        defaultKeyword: {},
+        hotKeyword: [],
+        page: 1,
+        size: 20,
+        currentSortType: 'id',
+        currentSortOrder: 'desc',
+        categoryId: 0
+    },
   //事件处理函数
   closeSearch: function () {
     wx.navigateBack()
