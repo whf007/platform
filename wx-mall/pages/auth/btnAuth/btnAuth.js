@@ -1,6 +1,7 @@
 const util = require('../../../utils/util.js');
 const api = require('../../../config/api.js');
 
+var user = require('../../../services/user.js');
 //获取应用实例
 const app = getApp()
 Page({
@@ -41,28 +42,29 @@ Page({
   bindGetUserInfo: function(e) {
     let that = this;
     //登录远程服务器
-    if (that.data.code) {
-      util.request(api.AuthLoginByWeixin, {
-        code: that.data.code,
-        userInfo: e.detail
-      }, 'POST', 'application/json').then(res => {
-          console.log(res)
-        if (res.errno === 0) {
-          //存储用户信息
-          wx.setStorageSync('userInfo', res.data.userInfo);
-          wx.setStorageSync('token', res.data.token);
-          wx.setStorageSync('userId', res.data.userId);
-
-        } else {
-          util.showErrorToast(res.errmsg)
-          wx.showModal({
-            title: '提示',
-            content: res.errmsg,
-            showCancel: false
-          });
-        }
-      });
-    }
+     user.newloginByWeixin(e);
+    // if (that.data.code) {
+    //   util.request(api.AuthLoginByWeixin, {
+    //     code: that.data.code,
+    //     userInfo: e.detail
+    //   }, 'POST', 'application/json').then(res => {
+    //       console.log(res)
+    //     if (res.errno === 0) {
+    //       //存储用户信息
+    //       wx.setStorageSync('userInfo', res.data.userInfo);
+    //       wx.setStorageSync('token', res.data.token);
+    //       wx.setStorageSync('userId', res.data.userId);
+    //
+    //     } else {
+    //       util.showErrorToast(res.errmsg)
+    //       wx.showModal({
+    //         title: '提示',
+    //         content: res.errmsg,
+    //         showCancel: false
+    //       });
+    //     }
+    //   });
+    // }
     if (that.data.navUrl && that.data.navUrl == '/pages/index/index') {
       wx.switchTab({
         url: that.data.navUrl,
