@@ -42,6 +42,8 @@ Page({
   bindGetUserInfo: function(e) {
     let that = this;
     //登录远程服务器
+      wx.removeStorageSync('token');
+      wx.removeStorageSync('userInfo');
      user.newloginByWeixin(e);
     // if (that.data.code) {
     //   util.request(api.AuthLoginByWeixin, {
