@@ -9,11 +9,12 @@ import com.alipay.api.request.AlipayUserInfoShareRequest;
 import com.alipay.api.response.AlipaySystemOauthTokenResponse;
 import com.alipay.api.response.AlipayUserInfoShareResponse;
 import com.platform.annotation.IgnoreAuth;
-import com.platform.entity.FullUserInfo;
-import com.platform.entity.UserInfo;
-import com.platform.entity.UserVo;
+import com.platform.entity.*;
+import com.platform.service.ApiCouponService;
+import com.platform.service.ApiUserCouponService;
 import com.platform.service.ApiUserService;
 import com.platform.service.TokenService;
+import com.platform.servicebefore.ApiCounponBefor;
 import com.platform.util.ApiBaseAction;
 import com.platform.util.ApiUserUtils;
 import com.platform.util.CommonUtil;
@@ -51,6 +52,8 @@ public class ApiAuthController extends ApiBaseAction {
     private ApiUserService userService;
     @Autowired
     private TokenService tokenService;
+    @Autowired
+    private ApiCounponBefor apiCounponBefor;
 
     /**
      * 登录
@@ -59,11 +62,11 @@ public class ApiAuthController extends ApiBaseAction {
     @PostMapping("login")
     @ApiOperation(value = "登录接口")
     public R login(String mobile, String password) {
-//        Assert.isBlank(mobile, "手机号不能为空");
-//        Assert.isBlank(password, "密码不能为空");
+        Assert.isBlank(mobile, "手机号不能为空");
+        Assert.isBlank(password, "密码不能为空");
 //
 //        //用户登录
-//        long userId = userService.login(mobile, password);
+        long userId = userService.login(mobile, password);
 
         //生成token
         Map<String, Object> map = tokenService.createToken(1L);
@@ -125,6 +128,11 @@ public class ApiAuthController extends ApiBaseAction {
             userVo.setNickname(userInfo.getNickName());
             userService.save(userVo);
         } else {
+            // 添加优惠券
+            // 领取
+            Map couponParam = new HashMap();
+            couponParam.put("send_type", 10);
+            apiCounponBefor.saveCouponFirst(userVo.getUserId(),couponParam);
             userVo.setLast_login_ip(this.getClientIp());
             userVo.setLast_login_time(nowTime);
             userService.update(userVo);

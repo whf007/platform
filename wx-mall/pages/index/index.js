@@ -17,7 +17,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: 'NideShop',
-      desc: '婴儿奶粉微信小程序商城',
+      desc: '阿拉优品微信小程序商城',
       path: '/pages/index/index'
     }
   },onPullDownRefresh(){

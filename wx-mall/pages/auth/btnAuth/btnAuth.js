@@ -46,6 +46,7 @@ Page({
         code: that.data.code,
         userInfo: e.detail
       }, 'POST', 'application/json').then(res => {
+          console.log(res)
         if (res.errno === 0) {
           //存储用户信息
           wx.setStorageSync('userInfo', res.data.userInfo);
@@ -53,7 +54,7 @@ Page({
           wx.setStorageSync('userId', res.data.userId);
 
         } else {
-          // util.showErrorToast(res.errmsg)
+          util.showErrorToast(res.errmsg)
           wx.showModal({
             title: '提示',
             content: res.errmsg,
